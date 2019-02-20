@@ -13,5 +13,6 @@ void heap_permutation(int *a, int size, int n, int *max);
 int is_better(int best_so_far, int current);
 void max_salary_naive(int *a, int size, int *max);
 void max_salary_good(int *a, int size);
+int length(int n);
 
 #endif

@@ -1,8 +1,18 @@
 #include "max_salary.h"
 
+int length(int n) {
+	int num = n;
+	int len = 1;
+	while(num >= 10) {
+		num /= 10;
+		len += 1;	
+	}
+	return len;
+}
+
 int is_better(int best_so_far, int current) {
-	int a_length = log10(best_so_far) + 1;
-	int b_length = log10(current) + 1;
+	int a_length = length(best_so_far);
+	int b_length = length(current);
 	int a = best_so_far * pow(10, b_length) + current;
 	int b = current * pow(10, a_length) + best_so_far;
 	return b > a;

@@ -12,17 +12,17 @@ void heap_permutation(int *a, int size, int n, int *max)
 { 
     // if size becomes 1 then do something with the obtained permutation   
     if (size == 1) {
-		int length = 0;
+		int len = 0;
 		for(int i = 0; i < n; i++) {
-			length += log10(a[i]) + 1;
+			len += length(a[i]);
 		}
-		int a_num[length];
-		int max_num[length];
+		int a_num[len];
+		int max_num[len];
 		int y = 0;
 		int z = 0;
 		for(int i = 0; i < n; i++) {
-			int a_length = log10(a[i]) + 1;
-			int max_length = log10(max[i]) + 1;
+			int a_length = length(a[i]);
+			int max_length = length(max[i]);
 			for(int j = a_length; j > 0; j--) {
 				int x = pow(10, j);
 				a_num[y] = (a[i] % x) / pow(10, j - 1);
@@ -34,7 +34,7 @@ void heap_permutation(int *a, int size, int n, int *max)
 				z++;
 			}
 		}
-		for(int i = 0; i < length; i++) {
+		for(int i = 0; i < len; i++) {
 			if (a_num[i] != max_num[i]) {
 				if (a_num[i] > max_num[i]) {
 					for(int j = 0; j < n; j++) {
